@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h2 class="titulo">
+        LISTA DE PLATOS BÁSICOS
+    </h2>
+
+    <nav class="contenedor_buscador">
+        <section class="contenedor-input-buscador">
+            <input id="buscador" type="text" placeHolder="Escribé lo que quieres preparar">
+        </section>
+        <section class="filtros-container">
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span class="category" data-filter="mostrar">
+                        Mostrar
+                    </span>
+                    <span class="arrow-down">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8 9l4 4 4-4" stroke="black" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="dropdown-content">
+                    <span data-value="todos">Todos</span>
+                    <span data-value="favoritos">Favoritos</span>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span class="category" data-filter="dificultad">
+                        Dificultad
+                    </span>
+                    <span class="arrow-down">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8 9l4 4 4-4" stroke="black" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="dropdown-content">
+                    <span data-value="facil">Fácil</span>
+                    <span data-value="media">Media</span>
+                    <span data-value="dificil">Difícil</span>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span class="category" data-filter="tiempo_preparacion">
+                        Tiempo de preparación
+                    </span>
+                    <span class="arrow-down">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8 9l4 4 4-4" stroke="black" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="dropdown-content">
+                    <span data-value="rapido">Menos de 15 minutos</span>
+                    <span data-value="media">15 - 30 minutos</span>
+                    <span data-value="largo">Más de 30 minutos</span>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span class="category" data-filter="categoria">
+                        Categoría
+                    </span>
+                    <span class="arrow-down">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8 9l4 4 4-4" stroke="black" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="dropdown-content">
+                    <span data-value="desayuno">Desayuno</span>
+                    <span data-value="almuerzo">Almuerzo</span>
+                    <span data-value="cena">Cena</span>
+                    <span data-value="postre">Postre</span>
+                </div>
+            </div>
+        </section>
+        <section class="contenedor-boton-reset">
+            <button id="reset-filtros">Resetear filtros</button>
+        </section>
+    </nav>
+
+    <main id="platos" class="contenedor"></main>
+
+    <!-- Modal global -->
+    <div id="modal-receta" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modal-titulo"></h3>
+
+            <img id="modal-imagen" alt="Plato" />
+
+            <section>
+                <h5>Ingredientes</h5>
+                <div id="modal-ingredientes"></div>
+            </section>
+
+            <section class="modal-preparacion">
+                <h5>Preparación</h5>
+                <p id="modal-preparacion"></p>
+                <button id="toggle-preparacion" class="toggle-btn">Ver más</button>
+            </section>
+        </div>
+    </div>
+
+    <script src="./coleccion-platos.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
