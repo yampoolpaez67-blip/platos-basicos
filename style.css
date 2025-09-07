@@ -49,6 +49,7 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transform: translateY(20px);
   animation: fadeInUp 0.4s ease forwards;
+  padding-bottom: 100px;
 }
 
 .plato .imagen-container {
@@ -221,6 +222,7 @@ body {
 .ingredientes {
   display: flex;
   max-height: 180px;
+  height: 180px;
   overflow-y: auto;
   flex-direction: column;
   margin: 20px;
@@ -264,7 +266,7 @@ body {
   flex-wrap: wrap;
   margin: 10px 0;
   padding: 20px;
-  font-size: 14px;
+  font-size: 10px;
   align-items: center;
 }
 
@@ -340,6 +342,16 @@ body {
   animation: fadeOut 0.3s ease forwards;
 }
 
+.modal-header {
+  display: flex;
+  flex-direction: column;
+}
+
+#modal-titulo {
+  text-align: center;
+  padding: 25px;
+}
+
 /* Contenido */
 .modal-content {
   background: #fff;
@@ -370,6 +382,32 @@ body {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.modal-ingredientes, .modal-preparacion {
+  padding: 15px;  
+}
+
+.modal-titulo-ingredientes {
+  padding-bottom: 15px;
+}
+
+#modal-ingredientes {
+  padding: 15px;
+}
+
+.modal-titulo-ingredientes, .modal-titulo-preparacion {
+  border-bottom: 1px solid #cccbcb;
+  font-size: 1rem;
+}
+
+.modal-titulo-preparacion {
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+#modal-preparacion {
+  padding: 15px 0px;
 }
 
 /* Animaciones */

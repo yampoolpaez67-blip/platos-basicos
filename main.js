@@ -24,9 +24,9 @@ const categoriaMap = {
 };
 
 const tiempoMap = {
-  rapido: "Menos de 15 minutos",
-  medio: "15 - 30 minutos",
-  largo: "Más de 30 minutos"
+  rapido: "Menos de 15 min",
+  medio: "15 - 30 min",
+  largo: "Más de 30 min"
 };
 
 function getColorDificultad(dificultad) {
