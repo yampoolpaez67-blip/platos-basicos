@@ -1,136 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 
+      La etiqueta meta viewport asegura que la página
+      se vea correctamente en dispositivos móviles y
+      que el contenido se adapte al tamaño de la pantalla.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap"
-        rel="stylesheet">
 
-    <link rel="stylesheet" href="./style.css">
-</head>
+    <!-- 
+      Conexiones previas para optimizar la carga de fuentes externas desde Google Fonts.
+      Esto hace que la fuente se cargue más rápido.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<body>
-    <h2 class="titulo">
-        LISTA DE PLATOS BÁSICOS
-    </h2>
+    <!-- 
+      Fuente personalizada (Arimo) importada desde Google Fonts.
+      Se usará en todo el sitio web para dar estilo uniforme al texto.
+    -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
 
+    <!-- 
+      Archivo principal de estilos en cascada (CSS),
+      donde se define la apariencia visual del sitio.
+    -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- 
+      Título principal de la página que presenta
+      la lista de platos básicos.
+    -->
+    <h2 class="titulo"> LISTA DE PLATOS BÁSICOS </h2>
+
+    <!-- 
+      Barra de búsqueda y filtros.
+      Aquí el usuario puede escribir el nombre de un plato
+      o seleccionar filtros como categoría, tiempo, dificultad o favoritos.
+    -->
     <nav class="contenedor_buscador">
-        <section class="contenedor-input-buscador">
-            <input id="buscador" type="text" placeHolder="Escribé lo que quieres preparar">
-        </section>
-        <section class="filtros-container">
-            <div class="dropdown">
-                <button class="dropdown-btn">
-                    <span class="category" data-filter="mostrar">
-                        Mostrar
-                    </span>
-                    <span class="arrow-down">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M8 9l4 4 4-4" stroke="black" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                </button>
-                <div class="dropdown-content">
-                    <span data-value="todos">Todos</span>
-                    <span data-value="favoritos">Favoritos</span>
-                </div>
-            </div>
+      <!-- Sección para el campo de búsqueda -->
+      <section class="contenedor-input-buscador">
+        <input
+          id="buscador"
+          type="text"
+          placeHolder="Escribé lo que quieres preparar"
+        />
+      </section>
 
-            <div class="dropdown">
-                <button class="dropdown-btn">
-                    <span class="category" data-filter="dificultad">
-                        Dificultad
-                    </span>
-                    <span class="arrow-down">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M8 9l4 4 4-4" stroke="black" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                </button>
-                <div class="dropdown-content">
-                    <span data-value="facil">Fácil</span>
-                    <span data-value="media">Media</span>
-                    <span data-value="dificil">Difícil</span>
-                </div>
-            </div>
+      <!-- 
+        Contenedor de todos los filtros desplegables (dropdowns).
+        Cada filtro permite seleccionar una condición específica
+        que ayuda a reducir la lista de platos.
+      -->
+      <section class="filtros-container">
+        <!-- Filtro: mostrar todos o solo los favoritos -->
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            <span class="category" data-filter="mostrar"> Mostrar </span>
+            <span class="arrow-down">
+              <!-- Icono de flecha hacia abajo -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M8 9l4 4 4-4"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+          <div class="dropdown-content">
+            <span data-value="todos">Todos</span>
+            <span data-value="favoritos">Favoritos</span>
+          </div>
+        </div>
 
-            <div class="dropdown">
-                <button class="dropdown-btn">
-                    <span class="category" data-filter="tiempo_preparacion">
-                        Tiempo de preparación
-                    </span>
-                    <span class="arrow-down">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M8 9l4 4 4-4" stroke="black" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                </button>
-                <div class="dropdown-content">
-                    <span data-value="rapido">Menos de 15 minutos</span>
-                    <span data-value="media">15 - 30 minutos</span>
-                    <span data-value="largo">Más de 30 minutos</span>
-                </div>
-            </div>
+        <!-- Filtro: dificultad de la receta -->
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            <span class="category" data-filter="dificultad"> Dificultad </span>
+            <span class="arrow-down">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M8 9l4 4 4-4"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+          <div class="dropdown-content">
+            <span data-value="facil">Fácil</span>
+            <span data-value="media">Media</span>
+            <span data-value="dificil">Difícil</span>
+          </div>
+        </div>
 
-            <div class="dropdown">
-                <button class="dropdown-btn">
-                    <span class="category" data-filter="categoria">
-                        Categoría
-                    </span>
-                    <span class="arrow-down">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M8 9l4 4 4-4" stroke="black" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                </button>
-                <div class="dropdown-content">
-                    <span data-value="desayuno">Desayuno</span>
-                    <span data-value="almuerzo">Almuerzo</span>
-                    <span data-value="cena">Cena</span>
-                    <span data-value="postre">Postre</span>
-                </div>
-            </div>
-        </section>
-        <section class="contenedor-boton-reset">
-            <button id="reset-filtros">Resetear filtros</button>
-        </section>
+        <!-- Filtro: tiempo de preparación -->
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            <span class="category" data-filter="tiempo_preparacion">
+              Tiempo de preparación
+            </span>
+            <span class="arrow-down">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M8 9l4 4 4-4"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+          <div class="dropdown-content">
+            <span data-value="rapido">Menos de 15 minutos</span>
+            <span data-value="media">15 - 30 minutos</span>
+            <span data-value="largo">Más de 30 minutos</span>
+          </div>
+        </div>
+
+        <!-- Filtro: categoría del plato -->
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            <span class="category" data-filter="categoria"> Categoría </span>
+            <span class="arrow-down">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M8 9l4 4 4-4"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+          <div class="dropdown-content">
+            <span data-value="desayuno">Desayuno</span>
+            <span data-value="almuerzo">Almuerzo</span>
+            <span data-value="cena">Cena</span>
+            <span data-value="postre">Postre</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Botón para reiniciar todos los filtros -->
+      <section class="contenedor-boton-reset">
+        <button id="reset-filtros">Resetear filtros</button>
+      </section>
     </nav>
 
+    <!-- 
+      Contenedor principal donde se van a mostrar
+      las tarjetas de los platos (dinámicamente con JavaScript).
+    -->
     <main id="platos" class="contenedor"></main>
 
-    <!-- Modal global -->
+    <!-- 
+      Modal global: ventana emergente que se abre al seleccionar un plato.
+      Muestra el detalle completo de la receta, incluyendo ingredientes
+      e instrucciones de preparación.
+    -->
     <div id="modal-receta" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h3 id="modal-titulo"></h3>
-            </div>
-
-            <img id="modal-imagen" alt="Plato" />
-
-            <section class="modal-ingredientes">
-                <h5 class="modal-titulo-ingredientes">Ingredientes</h5>
-                <div id="modal-ingredientes"></div>
-            </section>
-
-            <section class="modal-preparacion">
-                <h5 class="modal-titulo-preparacion">Preparación</h5>
-                <p id="modal-preparacion"></p>
-                <button id="toggle-preparacion" class="toggle-btn">Ver más</button>
-            </section>
+      <div class="modal-content">
+        <!-- Cabecera del modal con título y botón para cerrar -->
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h3 id="modal-titulo"></h3>
         </div>
+
+        <!-- Imagen del plato dentro del modal -->
+        <img id="modal-imagen" alt="Plato" />
+
+        <!-- Sección de ingredientes en el modal -->
+        <section class="modal-ingredientes">
+          <h5 class="modal-titulo-ingredientes">Ingredientes</h5>
+          <div id="modal-ingredientes"></div>
+        </section>
+
+        <!-- Sección de preparación en el modal -->
+        <section class="modal-preparacion">
+          <h5 class="modal-titulo-preparacion">Preparación</h5>
+          <p id="modal-preparacion"></p>
+          <!-- Botón que permite mostrar más o menos texto -->
+          <button id="toggle-preparacion" class="toggle-btn">Ver más</button>
+        </section>
+      </div>
     </div>
 
+    <!-- 
+      Archivos JavaScript: 
+      - coleccion-platos.js contiene la base de datos de platos.
+      - main.js contiene la lógica de búsqueda, filtros y modal.
+    -->
     <script src="./coleccion-platos.js"></script>
     <script src="./main.js"></script>
-</body>
-
+  </body>
 </html>

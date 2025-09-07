@@ -1,13 +1,24 @@
+/* El asterisco (*) aplica estos estilos a TODOS los elementos de la página.
+   Quita el margen y el relleno que traen por defecto los navegadores. */
 * {
   margin: 0;
   padding: 0;
 }
 
+/* Estilos generales del cuerpo (body) de la página:
+   - Se define una fuente moderna (Arimo).
+   - Se coloca un color de fondo gris claro. */
 body {
   font-family: "Arimo", sans-serif;
   background-color: #f5f5f5fb;
 }
 
+/* Título principal de la página:
+   - Ocupa todo el ancho.
+   - Se centra el texto.
+   - Tiene altura de 50px.
+   - Se empuja hacia abajo con padding-top (75px).
+   - Se deja espacio debajo (25px). */
 .titulo {
   width: 100%;
   text-align: center;
@@ -16,6 +27,11 @@ body {
   margin-bottom: 25px;
 }
 
+/* Contenedor principal de los platos:
+   - Usa grid (rejilla) para organizar los elementos.
+   - Por defecto muestra 1 columna.
+   - Se separan los elementos con 20px.
+   - Se agrega un relleno general de 20px. */
 .contenedor {
   display: grid;
   grid-template-columns: 1fr;
@@ -23,12 +39,17 @@ body {
   padding: 20px;
 }
 
+/* Media query:
+   Cuando la pantalla es mayor a 768px (computador/tablet),
+   se muestran los platos en 3 columnas en vez de 1. */
 @media (min-width: 768px) {
   .contenedor {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+/* Animación llamada fadeInUp:
+   Hace que los elementos aparezcan poco a poco y suban desde abajo. */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -41,6 +62,10 @@ body {
   }
 }
 
+/* Tarjeta de cada plato:
+   - Fondo blanco, bordes redondeados y sombra.
+   - Animación al aparecer (fadeInUp).
+   - Espacio en la parte inferior (padding-bottom). */
 .plato {
   width: 100%;
   height: auto;
@@ -52,6 +77,10 @@ body {
   padding-bottom: 100px;
 }
 
+/* Contenedor de la imagen del plato:
+   - Ajusta el tamaño de la imagen.
+   - Mantiene bordes redondeados.
+   - Oculta lo que se salga del marco. */
 .plato .imagen-container {
   width: 100%;
   height: 40%;
@@ -60,24 +89,34 @@ body {
   margin-bottom: 10px;
 }
 
-/* Imagen dentro del contenedor */
+/* Imagen del plato:
+   - Ocupa todo el espacio del contenedor.
+   - Se recorta proporcionalmente sin deformarse.
+   - Se centra automáticamente. */
 .plato .imagen-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* recorta para llenar el espacio sin deformarse */
+  object-fit: cover;   /* recorta la imagen para llenar sin deformar */
   object-position: center; /* centra la imagen */
   display: block;
 }
 
+/* Estilos para el título de cada plato (centrado). */
 .titulo_plato {  
   text-align: center;
 }
 
+/* Texto de preparación del plato:
+   - Se le da espacio (padding).
+   - Texto justificado. */
 .preparacion_plato {
   padding: 25px;
   text-align: justify;
 }
 
+/* Imagen individual del plato:
+   - Ajusta su proporción.
+   - Mantiene el contenedor flexible. */
 .imagen_plato {
   width: 100%;
   display: flex;
@@ -85,6 +124,9 @@ body {
   aspect-ratio: 4/3;
 }
 
+/* Contenedor del buscador:
+   - Centrado, en columna.
+   - Se deja espacio debajo (25px). */
 .contenedor_buscador {
   width: 100%;
   display: flex;
@@ -93,12 +135,20 @@ body {
   margin-bottom: 25px;
 }
 
+/* Contenedor del input del buscador:
+   - Centra horizontalmente el campo.
+   - Espacio en la parte inferior (3rem). */
 .contenedor-input-buscador {
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
 }
 
+/* Estilo del cuadro de búsqueda:
+   - Tamaño al 50% de ancho.
+   - Texto centrado dentro.
+   - Bordes redondeados (25px).
+   - Fondo gris claro. */
 #buscador {
   width: 50%;
   display: flex;
@@ -110,19 +160,27 @@ body {
   text-align: center;
   background-color: #e9e8e8;
 
+  /* En pantallas pequeñas, ocupa el 80% del ancho. */
   @media (max-width: 768px) {
     width: 80%;
   }
 }
 
+/* Cuando el buscador está en foco (clic):
+   - Se elimina el borde azul típico. */
 #buscador:focus {
   outline: none;
 }
 
+/* Cuando el buscador está en foco:
+   - El texto del placeholder se vuelve invisible. */
 #buscador:focus::placeholder {
   color: transparent;
 }
 
+/* Contenedor de filtros (botones):
+   - Los organiza en fila (o columna en pantallas pequeñas).
+   - Espacio entre botones (gap). */
 .filtros-container {
   display: flex;
   justify-content: center;
@@ -141,6 +199,9 @@ body {
   }
 }
 
+/* Contenedor del botón "Reset":
+   - Centrado horizontalmente.
+   - El botón es rojo y cambia de tono al pasar el mouse. */
 .contenedor-boton-reset {
   display: flex;
   justify-content: center;
@@ -162,6 +223,9 @@ body {
   }
 }
 
+/* Dropdown (menú desplegable):
+   - Se posiciona relativo.
+   - En móviles ocupa todo el ancho. */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -171,6 +235,9 @@ body {
   }
 }
 
+/* Botón del dropdown:
+   - Caja gris clara, texto en negrilla.
+   - Se ajusta al 100% en pantallas pequeñas. */
 .dropdown-btn {
   display: flex;
   align-items: center;
@@ -186,14 +253,19 @@ body {
   }
 }
 
+/* Flecha hacia abajo dentro del botón dropdown. */
 .arrow-down {
   padding-top: 5px;
 }
 
+/* Efecto hover para el botón dropdown. */
 .dropdown-btn:hover {
   background: #ddd;
 }
 
+/* Contenido desplegable:
+   - Oculto por defecto.
+   - Aparece como cuadro flotante con sombra. */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -204,6 +276,7 @@ body {
   min-width: 180px;
 }
 
+/* Cada opción dentro del menú desplegable. */
 .dropdown-content span {
   display: block;
   padding: 10px;
@@ -211,14 +284,19 @@ body {
   text-align: left;
 }
 
+/* Al pasar el mouse sobre las opciones se colorean. */
 .dropdown-content span:hover {
   background: #f1f1f1;
 }
 
+/* Clase que muestra el menú (display block). */
 .show {
   display: block;
 }
 
+/* Lista de ingredientes dentro de cada tarjeta:
+   - Caja con scroll si excede el tamaño (máx. 180px).
+   - Fondo gris muy claro. */
 .ingredientes {
   display: flex;
   max-height: 180px;
@@ -232,12 +310,17 @@ body {
   border-radius: 10px;
 }
 
+/* Contenedor del botón de favorito (corazón):
+   - Lo ubica al extremo derecho. */
 .contenedor-favorito {
   width: 100%;
   display: flex;
   justify-content: end;
 }
 
+/* Botón de favorito:
+   - Sin fondo ni borde.
+   - Área clickeable con padding. */
 .btn-favorito {
   background: none;
   border: none;
@@ -245,6 +328,9 @@ body {
   padding: 1.2rem;
 }
 
+/* Icono del corazón:
+   - Color gris por defecto.
+   - Cambia suavemente de color. */
 .icono-corazon {
   width: 32px;
   height: 32px;
@@ -252,14 +338,19 @@ body {
   transition: fill 0.3s ease;
 }
 
+/* El corazón se vuelve rojo al pasar el mouse. */
 .btn-favorito:hover .icono-corazon {
   fill: crimson; /* rojo al pasar el mouse */
 }
 
+/* El corazón permanece rojo cuando está activado (favorito guardado). */
 .btn-favorito.activo .icono-corazon {
   fill: crimson; /* rojo cuando está seleccionado */
 }
 
+/* Detalles extra de cada plato:
+   - Se acomodan en fila con espacios.
+   - Texto pequeño (10px). */
 .detalles-plato {
   display: flex;
   gap: 12px;
@@ -270,12 +361,14 @@ body {
   align-items: center;
 }
 
+/* Cada etiqueta dentro de los detalles del plato. */
 .detalles-plato span {
   padding: 4px 8px;
   border-radius: 6px;
   font-weight: 500;
 }
 
+/* Colores para dificultad (verde, amarillo, rojo, gris). */
 .dificultad.verde {
   background-color: #d4edda;
   color: #155724;
@@ -296,17 +389,23 @@ body {
   color: #383d41;
 }
 
+/* Estilos para etiquetas de tiempo y categoría. */
 .tiempo, .categoria {
   background-color: #f1f1f1;
   color: #333;
 }
 
+/* Contenedor del botón "Ver receta":
+   - Centrado en la tarjeta. */
 .contenedor-boton-ver-receta {
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
 }
 
+/* Botón "Ver receta":
+   - Azul con texto blanco.
+   - Cambia de color y se levanta al pasar el mouse. */
 .ver-receta-btn {
   margin-top: 12px;
   padding: 10px 16px;
@@ -330,7 +429,10 @@ body {
   background-color: #004494;
 }
 
-/* Modal fondo */
+/* Modal (ventana emergente):
+   - Oculta por defecto.
+   - Fondo oscuro semi-transparente.
+   - Centra el contenido. */
 .modal {
   display: none; /* oculto por defecto */
   position: fixed;
@@ -342,17 +444,22 @@ body {
   animation: fadeOut 0.3s ease forwards;
 }
 
+/* Cabecera del modal en columna. */
 .modal-header {
   display: flex;
   flex-direction: column;
 }
 
+/* Título dentro del modal centrado. */
 #modal-titulo {
   text-align: center;
   padding: 25px;
 }
 
-/* Contenido */
+/* Contenedor del contenido del modal:
+   - Caja blanca con bordes redondeados.
+   - Se ajusta al 90% de ancho máximo 600px.
+   - Puede hacer scroll si es muy largo. */
 .modal-content {
   background: #fff;
   padding: 20px;
@@ -367,14 +474,14 @@ body {
   animation: slideOut 0.3s ease forwards;
 }
 
-/* Imagen */
+/* Imagen dentro del modal. */
 #modal-imagen {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 15px;
 }
 
-/* Botón cerrar */
+/* Botón para cerrar el modal (X). */
 .close {
   position: absolute;
   right: 15px;
@@ -384,10 +491,12 @@ body {
   cursor: pointer;
 }
 
+/* Secciones de ingredientes y preparación dentro del modal. */
 .modal-ingredientes, .modal-preparacion {
   padding: 15px;  
 }
 
+/* Títulos de las secciones del modal. */
 .modal-titulo-ingredientes {
   padding-bottom: 15px;
 }
@@ -396,6 +505,7 @@ body {
   padding: 15px;
 }
 
+/* Línea inferior y tamaño de letra para títulos dentro del modal. */
 .modal-titulo-ingredientes, .modal-titulo-preparacion {
   border-bottom: 1px solid #cccbcb;
   font-size: 1rem;
@@ -406,11 +516,12 @@ body {
   margin-bottom: 15px;
 }
 
+/* Texto de preparación dentro del modal. */
 #modal-preparacion {
   padding: 15px 0px;
 }
 
-/* Animaciones */
+/* Animaciones para mostrar y ocultar modales. */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -428,7 +539,9 @@ body {
   to { transform: translateY(-50px); opacity: 0; }
 }
 
-/* Botón ver más */
+/* Botón "Ver más" dentro de cada tarjeta:
+   - Azul con texto blanco.
+   - Cambia a azul oscuro al pasar el mouse. */
 .toggle-btn {
   margin-top: 10px;
   padding: 6px 12px;
